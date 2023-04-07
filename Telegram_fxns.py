@@ -28,7 +28,7 @@ def get_metadata(last_update, BOT_TOKEN):
     response = requests.get(url)
     data = json.loads(response.content)
     
-    name = data['result'][0]['message']['from']['first_name']
+    name = data['result'][0]['message']['from']['first_name'] if data['result'] else None
 
     return data, name
 

@@ -58,8 +58,7 @@ def Chatbot():
                     if 'reply_to_message' in result['message']:
                         if result['message']['reply_to_message']['from']['is_bot']:
                             user_reply = result['message']['text']
-                            bot_response = OPENAI.openAI(f"{user_reply}")
-                            print(TELE.telegram_bot_sendtext(bot_response, chat_id, msg_id))
+                            OPENAI.converse(user_reply, OPENAI.messages, chat_id, msg_id, BOT_TOKEN)
 
                     if msg_id != prev_msg_id:
                         print(f"USER: {user_reply}")
