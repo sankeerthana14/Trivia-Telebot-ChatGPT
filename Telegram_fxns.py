@@ -38,7 +38,8 @@ def telegram_bot_sendtext(bot_message,chat_id,msg_id, BOT_TOKEN):
     data = {
         'chat_id': chat_id,
         'text': bot_message,
-        'reply_to_message_id': msg_id
+        'reply_to_message_id': msg_id,
+        'parse_mode': 'HTML'
     }
     
     response = requests.post(
@@ -46,6 +47,7 @@ def telegram_bot_sendtext(bot_message,chat_id,msg_id, BOT_TOKEN):
         json=data
     )
     print(f"INFO: Sent Message to user for Chat ID {data[chat_id]}")
+    print(f"Response JSON:", response.json())
     return response.json()
 
 

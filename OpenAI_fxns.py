@@ -35,13 +35,24 @@ def converse(user_reply, messages, chat_id, msg_id, BOT_TOKEN):
         pass
 
     elif user_reply == '/play':
-        user_reply = "You will ask me trivia questions one by one in a sassy, witty, humorous and sarcastic tone! Ask me one question at a time and wait for me to reply."
+        user_reply = "You will ask me trivia questions one by one in a sassy, witty, humorous and sarcastic tone! (Ask one question at a time and wait for me to reply)." \
+                     "Also make sure to keep the game going by asking a new question at every reply. " \
+                     " Add <b></b> HTML tag containing the question asked"
     
     elif user_reply == '/done':
         model_response = f"Okay then! It was super fun playing with you {NAME}! Bye-bye!"
 
     messages = update_chat(messages, 'user', user_reply)
     model_response = get_chatgpt_response(messages)
+    print(f"Model Response:{model_response}")
+
+    # Make sure bot asks one question at a time
+    if "1)" in model_response or "1." in model_response:
+
+        user_reply = "Ask me one question at a time."
+        messages = update_chat(messages, 'user', user_reply)
+        model_response = get_chatgpt_response(messages)
+
     messages = update_chat(messages, 'user', (model_response))
     send_response = TELE.telegram_bot_sendtext(model_response, chat_id, msg_id, BOT_TOKEN)
     print(f"INFO: Sent Response!")
