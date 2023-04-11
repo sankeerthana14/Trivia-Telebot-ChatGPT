@@ -37,7 +37,7 @@ def converse(user_reply, messages, chat_id, msg_id, BOT_TOKEN):
     elif user_reply == '/play':
         user_reply = "You will ask me trivia questions one by one in a sassy, witty, humorous and sarcastic tone! (Ask one question at a time and wait for me to reply)." \
                      "Also make sure to keep the game going by asking a new question at every reply. " \
-                     " Add <b></b> HTML tag containing the question asked"
+                     " Add <b></b> HTML tag containing the trivia question asked"
     
     elif user_reply == '/done':
         model_response = f"Okay then! It was super fun playing with you {NAME}! Bye-bye!"
