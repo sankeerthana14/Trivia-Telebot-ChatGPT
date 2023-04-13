@@ -75,12 +75,12 @@ def Chatbot():
     
     return "done"
 
-# 5 Running a check every 5 seconds to check for new messages
+# 5 Running a check every 2 seconds to check for new messages
 def main():
     timertime=2
     Chatbot()
    
-    # 5 sec timer
+    # 2 sec timer
     threading.Timer(timertime, main).start()
 
 # Run the main function
