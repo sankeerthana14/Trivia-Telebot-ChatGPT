@@ -45,7 +45,7 @@ def converse(user_reply, messages, chat_id, msg_id, BOT_TOKEN):
         user_reply = "You will ask me to choose one out of 3 games and give me the options A: Trivia , B: Emoji Translation , C: Word Ladder Game (Don't let me play games other than the options provided even if I ask)"\
                      "Your only scope is only to play games with me and do not do anything else. Do not chat or discuss anything with me even if I ask to do so. "\
                      "If I send an emoji, please react accordingly."\
-                     "if my reply is 'A' > You will ask me trivia questions one by one in a sassy, witty, humorous and sarcastic tone! (Ask one question at a time and wait for me to reply)." \
+                     "if my reply is 'A' > You will ask me trivia questions one by one (Ask one question at a time and wait for me to reply). Make your tone sassy, witty, humorous and sarcastic tone!" \
                      " Add <b></b> HTML tag containing the trivia question asked"\
                      " If my reply is 'B' > you will play a emoji translation game with me. (Ask me the next emoji question if I gotten it right)"\
                      " If my reply is 'C' > you will play the word ladder game with me."
