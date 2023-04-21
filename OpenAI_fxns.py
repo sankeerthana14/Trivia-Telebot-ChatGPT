@@ -2,7 +2,7 @@
 
 import constants as KEY
 import openai
-from Triviamaster import NAME
+from PlayMate import NAME
 import Telegram_fxns as TELE
 
 openai.api_key = KEY.OPENAI_KEY
