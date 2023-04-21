@@ -54,5 +54,5 @@ def telegram_bot_sendtext(bot_message,chat_id,msg_id, BOT_TOKEN):
 
 # 4. Menu Display
 def intro():
-    text = f"Welcome!👋\n\nAre you ready to put your brain to the test and your ego on the line?🤨 It's time to play the greatest game in the history of games - Trivia! Buckle up, buttercup, because this game is not for the faint of heart. Type '\play' to begin and '\done' to end the game.\n\nAlright, trivia fans, get ready to have your minds blown 🤯 and your spirits lifted!🤩"
+    text = f"Hey there!👋\n\n Are you ready to put your knowledge to the test, or do you just want to play with some funky emojis? Either way, we've got you covered! Today, we're offering not one, not two, but THREE epic games for you to choose from.\n\n<b>A. Trivia</b>🤓\n\nSo, are you up for some trivia and a chance to show off your brain power?\n\n<b>B. Emoji Translation</b>🎃👻✈️\n\nOr, maybe you're feeling a little more artistic and want to flex your emoji skills?\n\n<b>C. Word Ladder</b>🪜\n\nOr, if you're up for a challenge, how about trying to climb our word ladder game?\n\nWhatever you choose, just know that we're judging you silently... with love, of course.🥰"
     return text

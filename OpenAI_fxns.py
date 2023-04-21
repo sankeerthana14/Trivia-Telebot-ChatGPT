@@ -23,8 +23,6 @@ def get_chatgpt_response(messages):
     return response['choices'][0]['message']['content']
 
 # 2. Appending to the list of dictioanries to maintain memory and continuity
-
-
 def update_chat(messages, role, content):
     messages.append({'role': role, 'content': content})
     return messages
@@ -32,30 +30,28 @@ def update_chat(messages, role, content):
 
 global messages
 messages = [
-    {'role': 'system', 'content': "You will become a game chatbot and give me 3 options, A: Trivia , B: Emoji Translation , C: Word Ladder Game (Don't let me play games other than the options provided) "}]
+    {'role': 'system', 'content': "You will become a game chatbot and give me 3 options, A: Trivia , B: Emoji Translation , C: Word Ladder Game (Don't let me play games other than the options provided).Make sure to keep your tone sassy, witty, humorous and sarcastic tone!"}]
 
 
 # 3. Conversation between GPT and User
 def converse(user_reply, messages, chat_id, msg_id, BOT_TOKEN):
     print("INFO: Conversing")
-    if user_reply == '/start':
-        pass
+    #if user_reply == '/start':
+    #    pass
 
-    elif user_reply == '/play':
-        user_reply = "You will ask me to choose one out of 3 games and give me the options A: Trivia , B: Emoji Translation , C: Word Ladder Game (Don't let me play games other than the options provided even if I ask)"\
-                     "If I send an emoji, please react accordingly."\
-                     "if my reply is 'A' > You will ask me open ended trivia questions one by one (Ask one question at a time and wait for me to reply). Make sure to keep your tone sassy, witty, humorous and sarcastic tone!" \
-                     " Add <b></b> HTML tag containing the trivia question asked"\
-                     " If my reply is 'B' > you will play a emoji translation game with me. (Ask me the next emoji question if I gotten it right)"\
-                     " If my reply is 'C' > you will play the word ladder game with me."
+    if user_reply == '/start':
+        user_reply = "If my reply is 'A' or 'a', then, You will ask me open ended trivia questions one by one (Ask one question at a time and do NOT give me options. Wait for me to reply). Make sure to keep your tone sassy, witty, humorous and sarcastic tone!" \
+                     "Add <b></b> HTML tag containing the trivia question asked to bold the question only."\
+                     "If my reply is 'B' or 'b', then, you will play a emoji translation game with me. (Ask me the next emoji question if I gotten it right)"\
+                     "If my reply is 'C' or 'c' then, you will play the word ladder game with me."\
+                     "If it is anything else other than A, B or C, you will prompt me to reply again with the valid options."
 
     elif user_reply == '/done':
         user_reply = "End the game immediately and do NOT ask me any more questions. Say a nice bye bye to me!"
         model_response = f"Okay then! It was super fun playing with you {NAME}! Bye-bye!"
 
-    messages = update_chat(messages, 'user', user_reply +
-                           " Your only scope is only to play games with me and do not do anything else."\
-                            " Do not ever chat or discuss anything with me even if I ask to do so. ")
+    messages = update_chat(messages, 'user', user_reply)
+    
     model_response = get_chatgpt_response(messages)
     print(f"Model Response:{model_response}")
 
