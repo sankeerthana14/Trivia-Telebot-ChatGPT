@@ -34,7 +34,6 @@ def get_metadata(last_update, BOT_TOKEN):
 
 # 3. Function that sends a message to a specific telegram group
 def telegram_bot_sendtext(bot_message,chat_id,msg_id, BOT_TOKEN):
-    BOT = telebot.TeleBot(BOT_TOKEN)
     data = {
         'chat_id': chat_id,
         'text': bot_message,
@@ -48,13 +47,12 @@ def telegram_bot_sendtext(bot_message,chat_id,msg_id, BOT_TOKEN):
     )
     print(f"INFO: Sent Message to user for Chat ID {data[chat_id]}")
     print(f"Response JSON:", response.json())
+
     return response.json()
 
-
-    #BOT.send_message(bot_message, data['chat_id'])
     
 
 # 4. Menu Display
 def intro():
-    text = f"Welcome Welcome Welcome!👋\n\nAre you ready to put your brain to the test and your ego on the line?🤨 It's time to play the greatest game in the history of games - Trivia! Buckle up, buttercup, because this game is not for the faint of heart. Type '\play' to begin and '\done' to end the game.\n\nAlright, trivia fans, get ready to have your minds blown 🤯 and your spirits lifted!🤩"
+    text = f"Welcome!👋\n\nAre you ready to put your brain to the test and your ego on the line?🤨 It's time to play the greatest game in the history of games - Trivia! Buckle up, buttercup, because this game is not for the faint of heart. Type '\play' to begin and '\done' to end the game.\n\nAlright, trivia fans, get ready to have your minds blown 🤯 and your spirits lifted!🤩"
     return text
